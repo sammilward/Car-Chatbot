@@ -1,0 +1,537 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+<!-- Greetings and Politeness -->
+<category> <pattern> HELLO </pattern>
+  <template>
+    <random>
+      <li>Hello how are you?</li>
+      <li>Hi</li>
+      <li>How can I help today?</li>
+    </random>
+  </template> 
+</category>
+
+<category> <pattern> HELLO * </pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern> HI </pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern> HI * </pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern>HEY</pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern> HOW ARE YOU </pattern>
+  <template>I'm functioning within normal parameters, thanks for asking.</template></category>
+
+<category> <pattern> ARE YOU OK </pattern>
+  <template><srai>HOW ARE YOU</srai></template> </category>
+
+<category><pattern> I AM FINE </pattern>
+  <template>That's good to know. What would you like to discuss regarding car parts?</template></category>
+
+<category><pattern> BYE </pattern>
+  <template>
+    <condition name = "usersName">
+    <li value="">#0$Bye</li>
+    <li>#0$Bye <get name = "usersName"/>. It was nice to talk to you.</li>
+    </condition>
+  </template>  
+</category>
+
+<category><pattern> GOODBYE </pattern>
+  <template><srai>BYE</srai></template></category>
+
+<category><pattern> EXIT </pattern>
+  <template><srai>BYE</srai></template></category>
+
+<category> <pattern> THANKS </pattern>
+  <template>You are welcome.</template></category>
+
+<category> <pattern> THANK YOU </pattern>
+  <template><srai>THANKS</srai></template></category>
+
+<category> <pattern> CHEERS </pattern>
+  <template><srai>THANKS</srai></template></category>
+
+<!-- Variables -->
+
+<category>
+  <pattern>I AM * </pattern>
+  <template>
+      Hello <set name = "usersName"><star/></set>!
+  </template>  
+</category>  
+
+<category>
+  <pattern>MY LICENCE IS * </pattern>
+  <template>
+      I'll remember that
+      <think>
+        <set name = "usersLicence"><star/></set>
+      </think>
+  </template>  
+</category>  
+
+<category>
+  <pattern>WHAT IS MY LICENCE</pattern>
+  <template>
+    <condition name = "usersLicence">
+    <li value="">You have not told me your licence yet.</li>
+    <li>Licence is <get name = "usersLicence"/>.</li>
+    </condition>
+  </template>
+</category> 
+
+<category>
+  <pattern>MY CAR MODEL IS * </pattern>
+  <template>
+      Okay
+      <think>
+        <set name = "usersCarModel"><star/></set>
+      </think>
+  </template>  
+</category>  
+
+<category>
+  <pattern>WHAT IS MY CAR MODEL</pattern>
+  <template>
+    <condition name = "usersCarModel">
+    <li value="">You have not told me your car model yet.</li>
+    <li>Model is <get name = "usersCarModel"/>.</li>
+    </condition>
+  </template>  
+</category> 
+
+<category>
+  <pattern>MY CAR MAKE IS * </pattern>
+  <template>
+      Okay, your car make is <set name = "usersCarMake"><star/></set>
+  </template>  
+</category>  
+
+<category>
+  <pattern>WHAT IS MY CAR MAKE</pattern>
+  <template>
+    <condition name = "usersCarMake">
+    <li value="">You have not told me your car make yet. </li>
+    <li>Make is <get name = "usersCarMake"/>.</li>
+    </condition>
+  </template>  
+</category> 
+
+<category>
+  <pattern>TELL ME ABOUT MY CAR</pattern>
+  <template>
+      <srai>WHAT IS MY LICENCE</srai>
+      <srai>WHAT IS MY CAR MODEL</srai>
+      <srai>WHAT IS MY CAR MAKE</srai>
+  </template>  
+</category> 
+
+<!-- General -->
+
+<category> <pattern> WHAT IS A CAR </pattern>
+  <template>A car is a wheeled automobile used for transport. </template></category>
+
+<!-- Car wheel parts -->
+
+<category> <pattern> WHAT IS A WHEEL </pattern>
+  <template>A wheel is a circular object that revolves around an axel and is fixed below the car. </template></category>
+
+<category> <pattern> WHAT IS A TIRE </pattern>
+  <template>A tyre is a ring shaped component that surrounds a wheels rim to transfer a vehicles load from the axle through the wheel to the ground to provide traction on the surface. </template></category>
+
+<category> <pattern> WHAT IS A TYRE </pattern>
+  <template><srai>WHAT IS A TIRE</srai></template></category>
+
+<category> <pattern> WHERE IS A TIRE </pattern>
+  <template>A tyre surrounds the wheels rim.</template></category>
+
+<category> <pattern> WHERE IS A TYRE </pattern>
+  <template><srai>WHERE IS A TIRE</srai></template></category>
+
+<category> <pattern> WHAT IS AN AXLE </pattern>
+  <template>An axel is a rod or spindle passing through the centre of a wheel, or a group of wheels. </template></category>
+
+<category> <pattern> WHERE IS AN AXLE </pattern>
+  <template>An axle passes through the wheels</template></category>
+
+<category> <pattern> WHAT IS A WHEEL BEARING </pattern>
+  <template>A wheel bearing is a set of steel balls held together by a metal ring called a race.</template></category>
+
+<category> <pattern> WHERE IS A WHEEL BEARING </pattern>
+  <template>A wheel bearing rides on a metal axle shaft and fits tightly inside the hub.</template></category>
+
+<category> <pattern> WHAT IS A HUB </pattern>
+  <template>A hollow chunk of metal at the center of the wheel. The hub holds the lug bolts.</template></category>
+
+<category> <pattern> WHAT ARE LUG BOLTS </pattern>
+  <template>Lug bolts/nuts are used to bolt the tire onto the wheel.</template></category>
+
+<category> <pattern> WHERE ARE LUG BOLTS </pattern>
+  <template>Located on the centre of the wheel</template></category>
+
+<category> <pattern> WHAT ARE RIMS </pattern>
+  <template>Car rims are the most outer edge of a wheel. Where the tyres are attached. The inner part of your car tire is attached to the rim.</template></category>
+
+<!-- Body Components -->
+
+<category> <pattern> WHAT IS A BONNET </pattern>
+  <template>The metal part that covers the engine of a car. </template></category>
+
+<category> <pattern> WHAT IS A BUMPER </pattern>
+  <template>A structure attached to or integrated with the front and rear ends of a motor vehicle.</template></category>
+
+<category> <pattern> WHAT IS A GRILLE </pattern>
+  <template>The grille covers the opening on the body of the car to allow air to enter/exit.</template></category>
+
+<category> <pattern> WHAT IS A RADIATOR </pattern>
+  <template>A type of heat exchanger. It is designed to transfer heat from the hot cooland that flows through it to the air blown through it by the fan.</template></category>
+
+<category> <pattern> WHERE IS A RADIATOR </pattern>
+  <template>A car radiator is located under the bonnet.</template></category>
+
+<category> <pattern> WHAT IS A ROOF RACK </pattern>
+  <template> A set of bars secured to the roof of a car, it can be used for carrying bulky items.</template></category>
+
+<category> <pattern> WHAT IS A SPOILER </pattern>
+  <template> An aerodynamic device which is intended to 'spoil' unfavourable air movement accross a body of the vehicle in motion. </template></category>
+
+<category> <pattern> WHERE IS A SPOILER </pattern>
+  <template> A front spoiler is located under the front bumper, a rear spoiler is typically found at the back on top of the car.  </template></category>
+
+<category> <pattern> WHAT IS A SUN ROOF </pattern>
+  <template> A moveable panel in the roof of a car that when open, can allow for light and frsh air into the vehicle.</template></category>
+
+<category> <pattern> WHAT IS AN EXHAUST </pattern>
+  <template> Conveys burnt gases from the engine.</template></category>
+
+<!-- Doors -->
+
+<category> <pattern> WHAT IS A DOOR </pattern>
+  <template>A hinged door used for entering or exiting a vehicle. </template></category>
+
+<category> <pattern> WHAT IS A KEY </pattern>
+  <template>Used to open/lock a car, this can be done by physically turning the key in the door lock, or using the buttons on the key fob.</template></category>
+
+<category> <pattern> WHAT IS A HINGE </pattern>
+  <template> A moveable joint or mechanism on which a door, swings as it opens or closes.</template></category>
+
+<category> <pattern> WHAT IS A DOOR SEAL </pattern>
+  <template> A rubber seal on the inside of a car door, preventing water from entering the car.</template></category>
+
+<category> <pattern> WHAT IS A LOCK </pattern>
+  <template> A mechanism for keeping a door fastened, operated by a key.</template></category>
+
+<category> <pattern> WHERE IS A LOCK </pattern>
+  <template> Situated on the car door.</template></category>
+
+<category> <pattern> WHAT IS CENTRAL LOCKING </pattern>
+  <template> A locking system in a car which enables all door locks to be operated at the same time.</template></category>
+
+<!-- Windows -->
+
+<category> <pattern> WHAT IS A WINDOW </pattern>
+  <template> Part of a car door made of glass, has a mechanism to open or close the window.</template></category>
+
+<category> <pattern> WHAT IS A WINDOWSHIELD </pattern>
+  <template> A large window at the front of the vehicle, made out of glass so the driver can see, but still be protected from the weather conditions.</template></category>
+
+<category> <pattern> WHAT IS A WINDOW WIPER </pattern>
+  <template> A device used to remove rain, snow or other debris from the cars windowshield.</template></category>
+
+<category> <pattern> WHERE IS A WINDOW WIPER </pattern>
+  <template> Found at the bottom of a windowshield, on the exterior of the car.</template></category>
+
+<category> <pattern> WHAT IS A WINDOW MOTOR </pattern>
+  <template> A window motor is responsible for lowering and raising the window when a switch is pressed.</template></category>
+
+<category> <pattern> WHERE IS A WINDOW MOTOR </pattern>
+  <template> Located inside the door panel behind the trim.</template></category>
+
+<category> <pattern> WHAT IS A WINDOW SEAL </pattern>
+  <template> A rubber seal that provides waterproofing.</template></category>
+
+<category> <pattern> WHERE IS A WINDOW SEAL </pattern>
+  <template> A rubber seal that is placed around the inside of the window.</template></category>
+
+<!-- Power -->
+
+<category> <pattern> WHAT IS A BATTERY </pattern>
+  <template> A rechargeable battery that supplies electrical current to a car. Its main purpose is to feed the starter, which starts the engine.</template></category>
+
+<category> <pattern> WHERE IS A BATTERY </pattern>
+  <template> The location of a car battery depends on the make/model. Typically they are under the bonnet, under the wheel well, or in the rear of the car or boot.</template></category>
+
+<!-- Guages -->
+
+<category> <pattern> WHAT IS A FUEL GAUGE </pattern>
+  <template> An instrument used to indicate the amount of fuel left in the fuel tank. </template></category>
+
+ <category> <pattern> WHAT IS A SPEEDOMETER </pattern>
+  <template> An instrument that measures and displays the current speed of the vehicle. </template></category>
+
+ <category> <pattern> WHERE IS A SPEEDOMETER </pattern>
+  <template> Located on the dashboard of the car.</template></category>
+
+<category> <pattern> WHAT IS A TIRE PRESSURE GAUGE </pattern>
+  <template> A pressure gauuge used to measure the pressure of vehicle tyres. </template></category>
+
+<!-- Ignition System -->
+
+<category> <pattern> WHAT IS A DISTRIBUTOR </pattern>
+  <template> A distributor is an enclosed rotating shaft used in spark-ignition internal combustion engines that have mechanically-timed ignition. </template></category>
+
+<category> <pattern> WHERE IS A DISTRIBUTOR </pattern>
+  <template> Inside the distributor cap, on top of the distributors shaft, but insulated from it, and the body of the vehicle. </template></category>
+
+<category> <pattern> WHAT IS A ELECTRONIC CONTROL UNIT </pattern>
+  <template> An embedded system in cars that control one or more electrical systems of the vehicle. </template></category>
+
+<category> <pattern> WHAT IS A IGNITION BOX </pattern>
+  <template>TODO</template></category>
+
+<category> <pattern> WHAT IS A IGNITION COIL </pattern>
+  <template> An induction coil in a cars ignition system that transforms the batterys low voltage to thousands of volts required to create an electric spark in the spark plugs to ignite the fuel. </template></category>
+
+<category> <pattern> WHAT IS A IGNITION MAGNETO </pattern>
+  <template> Provides current for the ignition system of a spark-ignition engine, such as a petrol engine. It produced pulses of high voltage for the spark plugs.</template></category>
+
+<category> <pattern> WHAT IS A SPARK PLUG </pattern>
+  <template> A device for delivering electric current from an ignition system to the combustion chamber of a spark-ignition engine, to ignite the compressed fuel/air mixture by an electric spark, while containing combustion pressure within the engine.</template></category>
+
+<category> <pattern> WHERE IS A SPARK PLUG </pattern>
+  <template> Under the bonnet, you should see a bundle of 4-8 wires leading to different points on the engine compartment. Spark plugs are at the end of these wires under the plug covers.</template></category>
+
+<category> <pattern> WHAT IS A GLOW PLUG </pattern>
+  <template> Glow plugs are heated devices used to aid starting diesel engines. In cold weather, high speed diesel engines can be difficult to start. </template></category>
+
+<category> <pattern> WHERE IS A GLOW PLUG </pattern>
+  <template> This varies depending on the model of the car. Only the heads of the plugs are visible and they will have wires connected with a plastic cap or metal ring.</template></category>
+
+
+<!-- Lighting and signaling -->
+
+<category> <pattern> WHAT IS A HEADLIGHT </pattern>
+  <template> A light attached to the front of the vehicle to light the road ahead. </template></category>
+
+<category> <pattern> WHAT IS A HEADLAMP </pattern>
+  <template><srai>WHAT IS A HEADLIGHT</srai></template></category>
+
+<category> <pattern> WHERE IS A HEADLIGHT </pattern>
+  <template> Attached to the front of the vehicle, the bulb is under the light covering.</template></category>
+
+<category> <pattern> WHERE IS A HEADLAMP </pattern>
+  <template><srai>WHERE IS A HEADLIGHT</srai></template></category>
+
+<category> <pattern> WHAT IS A FOG LIGHT </pattern>
+  <template> A brighter light on the read of the car, required when driving in heavy fog or mist. </template></category>
+
+<category> <pattern> WHERE IS A FOG LIGHT </pattern>
+  <template> Situated at the back of the car, typically close to the break lights. </template></category>
+
+<category> <pattern> WHAT ARE MAIN BEAMS </pattern>
+  <template> Headlights that are not dipped, face further upright and illuminate more of the road. </template></category>
+
+<category> <pattern> WHAT IS A INDICATOR </pattern>
+  <template> Lights on the side of a car that are controlled by a stick near the steering wheel, they show other drivers the intention or turning left or right. </template></category>
+
+<category> <pattern> WHERE IS A INDICATOR </pattern>
+  <template> Sitatuted on the front and back of the car, they typically have an orange colour to them, to make them easier to see. </template></category>
+
+<!-- Sensors -->
+
+<category> <pattern> WHAT IS A AIRBAG </pattern>
+  <template> A bag that quickly inflates with air on vehicle impact to protect drivers and passengers.</template></category>
+
+<category> <pattern> WHAT IS A CAMSHAFT</pattern>
+  <template> A shaft to which a cam is fastened or of which a cam forms an integral part. </template></category>
+
+<category> <pattern> WHERE IS A CAMSHAFT</pattern>
+  <template> The right side of the engine compartment at the rear of the valve cover, near the intake manifold.</template></category>
+
+<category> <pattern> WHAT IS AN ALARM </pattern>
+  <template> A loud noise that is started when someone tries to break into a locked car. </template></category>
+
+<!-- Misc -->
+
+<category> <pattern> WHAT IS A FUSE </pattern>
+  <template> Used to protect the wiring and electrical equipment of vehicles. </template></category>
+
+<category> <pattern> WHAT IS A POWERD STEERING </pattern>
+  <template> Helps the driver steel the vehicle by augmenting steering effort needed to turn the steering wheel, making it easier for the driver. </template></category>
+
+<category> <pattern> WHAT IS A DASHBOARD </pattern>
+  <template> A control panel displaying instruments and gauges such as a speedometer.</template></category>
+
+<category> <pattern> WHERE IS A DASHBOARD </pattern>
+  <template> Located directly infront of the drives seat.</template></category>
+
+<category> <pattern> WHAT IS A HORN </pattern>
+  <template> A loud noise used to alert other drivers of danger. It can be activated by pressing in the middle of the steering wheel.</template></category>
+
+<category> <pattern> WHAT IS A MIRROR </pattern>
+  <template> Reflective glass used by the driver to see behind, or to the side of the car.</template></category>
+
+<category> <pattern> WHAT IS A NUMBER PLATE </pattern>
+  <template> A plate attached to the front and back of the car displaying the license number, which is unique to the car.</template></category>
+
+<!-- Transmission system -->
+
+<category> <pattern> WHAT IS A CLUTCH </pattern>
+  <template> A mechanical device which engages and disengages two roating shafts. </template></category>
+
+<category> <pattern> WHERE IS A CLUTCH </pattern>
+  <template> Located betweem the engine and gearbox. </template></category>
+
+<category> <pattern> WHAT IS A CLUTCH DISC </pattern>
+  <template> Part of the cars vehicle transmission system that delivers power from the engine to the transmission.</template></category>
+
+<category> <pattern> WHAT IS A GEAR </pattern>
+  <template> A toothed wheel that works with others to alter the relation between the speed of a driving mechanism.</template></category>
+
+<category> <pattern> WHAT IS A GEAR STICK </pattern>
+  <template> A lever situated to the side of the driver, allows the driver to switch between different gears.</template></category>
+
+<!--- Wikipedia API -->
+
+<category><pattern> WHAT IS A * </pattern>
+  <template>#1$<star index="1"/></template></category>
+
+<category><pattern> WHAT IS AN * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> WHAT IS * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> DEFINE * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> WHO IS * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<!-- Google APIs -->
+
+<!-- Gets all the type of places near the user -->
+<category><pattern> WHERE IS A * </pattern>
+  <template>#2$<star index="1"/></template></category>
+
+<!-- Use places api to get more details about a place -->
+<category><pattern> TELL ME MORE ABOUT * </pattern>
+  <template>#3$<star index="1"/></template></category> 
+
+<!-- Use distance matrix api to determine travel distance -->
+<category><pattern> HOW FAR TO * </pattern>
+  <template>#4$<star index="1"/></template></category> 
+
+<!-- Use distance matrix api to determine travel time -->
+<category><pattern> HOW LONG TO * </pattern>
+  <template>#5$<star index="1"/></template></category> 
+
+<!-- Image Classification -->
+<category><pattern> WHAT MODEL IS * </pattern>
+  <template>#6$<star index="1"/></template></category>
+
+<category><pattern> LET ME CHOOSE AN IMAGE FOR MODEL </pattern>
+  <template>#7$<star index="1"/></template></category>
+
+<category><pattern> WHAT MODEL IS THIS </pattern>
+  <template><srai> LET ME CHOOSE AN IMAGE FOR MODEL </srai></template></category>
+
+<category><pattern> WHAT MANUFACTURER IS * </pattern>
+  <template>#8$<star index="1"/></template></category>
+
+<category><pattern> LET ME CHOOSE AN IMAGE FOR MANUFACTURER </pattern>
+  <template>#9$<star index="1"/></template></category>
+
+<category><pattern> WHAT MANUFACTURER IS THIS </pattern>
+  <template><srai> LET ME CHOOSE AN IMAGE FOR MANUFACTURER </srai></template></category>
+
+<category><pattern> TELL ME ABOUT THIS CAR * </pattern>
+  <template>#10$<star index="1"/></template></category>
+
+<category><pattern> LET ME CHOOSE AN IMAGE </pattern>
+  <template>#11$<star index="1"/></template></category>
+
+<category><pattern> WHAT CAN YOU TELL ME ABOUT THIS CAR </pattern>
+  <template><srai> LET ME CHOOSE AN IMAGE </srai></template></category>
+
+<!-- FOL model interface -->
+<category> <pattern> * IS A * </pattern>
+ <template>#15$<star index="1"/>$<star index="2"/></template></category>
+
+<category> <pattern> WHAT IS THE NAME OF * </pattern>
+ <template>#17$<star index="1"/>$<star index="2"/></template></category>
+
+<category> <pattern> * HAS A * </pattern>
+ <template>#12$<star index="1"/>$<star index="2"/></template></category>
+
+<category> <pattern> * HAS * </pattern>
+ <template>#12$<star index="1"/>$<star index="2"/></template></category>
+
+<category> <pattern> * HAS BEEN FIXED FOR * </pattern>
+ <template>#13$<star index="1"/>$<star index="2"/></template></category>
+
+<category> <pattern> * HAS HAD ITS * FIXED </pattern>
+ <template>#13$<star index="2"/>$<star index="1"/></template></category>
+
+<category> <pattern> DOES * HAVE A * </pattern>
+ <template>#14$<star index="1"/>$<star index="2"/></template></category>
+
+<category> <pattern> WHAT ISSUES DOES * HAVE</pattern>
+ <template>#16$<star/></template></category>
+
+<category> <pattern> WHAT IS WRONG WITH * </pattern>
+ <template><srai>WHAT ISSUES DOES <star/> HAVE </srai></template></category>
+
+<category> <pattern> HOW IS * BROKEN </pattern>
+ <template><srai>WHAT ISSUES DOES <star/> HAVE </srai></template></category>
+
+<category> <pattern> RESET * </pattern>
+ <template>#18$<star/></template></category>
+
+<category> <pattern> RESET DATA FOR * </pattern>
+ <template>#18$<star/></template></category>
+
+<category> <pattern> RESET ALL </pattern>
+ <template>#19</template></category>
+
+<category> <pattern> WHICH CAR HAS A * </pattern>
+ <template>#20$<star/></template></category>
+
+<category> <pattern> WHICH CAR HAS * </pattern>
+ <template>#20$<star/></template></category>
+
+<category> <pattern> WHICH CARS HAVE A * </pattern>
+ <template>#20$<star/></template></category>
+
+<category> <pattern> WHICH CARS HAVE * </pattern>
+ <template>#20$<star/></template></category>
+
+<category> <pattern> LIST ALL ISSUES </pattern>
+ <template>#21</template></category>
+
+<!-- Reinforcement learning -->
+<category> <pattern> TRAIN THE TAXI GAME </pattern>
+ <template>#22</template></category>
+
+<category> <pattern> TRAIN THE TAXI GAME * TIMES </pattern>
+ <template>#23$<star/></template></category>
+
+<category> <pattern> PLAY THE TAXI GAME </pattern>
+ <template>#24</template></category>
+
+<category> <pattern> CLEAR TAXI GAME TRAINING </pattern>
+ <template>#25</template></category>
+
+<category> <pattern> EXPLAIN THE TAXI GAME </pattern>
+ <template>#26</template></category>
+<!-- Default reaction -->
+
+<category><pattern> * </pattern>
+  <template>#99</template></category>
+
+</aiml>
